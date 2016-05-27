@@ -259,6 +259,15 @@ function tanks.register_tank(name, desc, bucket, liquid, bg)
 	end
 end
 
+minetest.register_craft({
+	output = "tanks:tank",
+	recipe = {
+		{"default:glass", "default:glass", "default:glass"},
+		{"default:glass", "", "default:glass"},
+		{"default:glass", "default:glass", "default:glass"}
+	}
+})
+
 tanks.register_tank("water", "Water tank", "bucket:bucket_water", "default:water_source", "tanks_water.png")
 tanks.register_tank("river_water", "River water tank", "bucket:bucket_river_water", "default:river_water_source", "tanks_river_water.png")
 tanks.register_tank("lava", "Lava tank", "bucket:bucket_lava", "default:lava_source", "tanks_lava.png")
