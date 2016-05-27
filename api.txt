@@ -1,0 +1,46 @@
+Register a liquid tank:
+tanks.register_tank(name, description, bucket, source, background)
+name:          The name of the liquid (example: water)
+description:  The description of the tank in inventory
+bucket:         The name of the bucket item
+source:         The name of the source block
+background: The name of the background texture (16x16px) for the tank (see: textures/water)
+
+Callbacks:
+tanks.register_on_update(func(pos, meta)
+	-- Do something
+end)
+Called when after a tank is places, liquid input, liquid output
+Return true to skip the regular function and other callbacks
+
+pos:  Position of the tank
+meta: Metadata of the tank (minetest.get_meta(pos))
+
+tanks.register_on_place(func(pos, placer, itemstack, pt)
+	-- Do something
+end)
+Called when a tank is placed by after_place_node
+Return true to skip the regular function and other callbacks
+placer:      The player that placed the tank
+itemstack: The stack that the player has placed
+pt:             The pointed thing
+
+tanks.register_on_dig(func(pos, node, player)
+	-- Do someting
+end)
+Called when the player tries to dig the tank
+Return true to skip the regular function and other callbacks
+node: The node reference
+
+tanks.register_on_punch(func(pos, node, player, itemstack, pt)
+	-- Do something
+end)
+Called when the player punches the tank
+Return a itemstack to skipt regular function and other callbacks
+
+tanks.register_on_rightclick(func(pos, node, player, itemstack, pt)
+	-- Do something
+end)
+Called when the player rightclicks the tank
+Return a itemstack to skipt regular function and other callbacks
+
